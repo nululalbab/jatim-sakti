@@ -27,12 +27,12 @@
 
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nama Pengajuan') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nomor Memo') }}</label>
 
                             <div class="col-md-6">
-                                <input id="name" type="text" class="form-control @error('Nama Pengajuan') is-invalid @enderror" name="name" value="{{ old('name') }}" required autocomplete="name" autofocus>
+                                <input id="memo" type="text" class="form-control @error('Nomor Memo') is-invalid @enderror" name="memo" value="{{ old('memo') }}" required autocomplete="memo" autofocus>
 
-                                @error('name')
+                                @error('memo')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -41,12 +41,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Amount') }}</label>
+                            <label for="perihal" class="col-md-4 col-form-label text-md-right">{{ __('Perihal') }}</label>
 
                             <div class="col-md-6">
-                                <input id="amount" type="text" class="form-control @error('Amount') is-invalid @enderror" name="amount" value="{{ old('name') }}" required autocomplete="amount" autofocus>
+                                <input id="perihal" type="text" class="form-control @error('Perihal') is-invalid @enderror" name="perihal" value="{{ old('perihal') }}" required autocomplete="perihal" autofocus>
 
-                                @error('amount')
+                                @error('perihal')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -55,17 +55,17 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Ditujukan') }}</label>
+                            <label for="Unit" class="col-md-4 col-form-label text-md-right">{{ __('Unit') }}</label>
 
                             <div class="col-md-6">
 
-                                <select id="ditujukan" type="text" class="form-control @error('Ditujukan') is-invalid @enderror" name="ditujukan" value="{{ old('name') }}" required autocomplete="ditujukan" autofocus>
-                                  <option value="volvo">SLA</option>
+                                <select id="unit" type="text" class="form-control @error('unit') is-invalid @enderror" name="unit" value="{{ old('unit') }}" required autocomplete="unit" autofocus>
+                                  <option value="volvo">Unit Kerja Lain</option>
                                   <option value="saab">Unit Kerja Lain</option>
                                   <option value="mercedes">Unit Kerja Lain</option>
                                   <option value="audi">Unit Kerja Lain</option>
                                   </select>
-                                @error('ditujukan')
+                                @error('unit')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>

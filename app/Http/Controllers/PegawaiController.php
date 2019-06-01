@@ -2,6 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Http\Request;
+use App\Models\Anggaran;
+use App\Models\User;
+use App\Models\Unit;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -28,7 +32,16 @@ class PegawaiController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showDaftarAnggaran() {
-        return view('anggaran.daftar');
+
+      $user = User::all();
+      $unit = Unit::all();
+      $anggaran = Anggaran::all();
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran' => $anggaran
+      );
+        return view('anggaran.daftar')->with($data);
     }
 
     public function showFormAnggaran() {

@@ -1,5 +1,93 @@
 [
     {
+        "name": "awkwardideas/migrator",
+        "version": "1.0.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/awkwardideas/Migrator.git",
+            "reference": "c0ba7e76d88a4e0dd57a2a3cdc92ea1afb2fc781"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/awkwardideas/Migrator/zipball/c0ba7e76d88a4e0dd57a2a3cdc92ea1afb2fc781",
+            "reference": "c0ba7e76d88a4e0dd57a2a3cdc92ea1afb2fc781",
+            "shasum": ""
+        },
+        "require": {
+            "awkwardideas/mypdo": "@dev",
+            "php": ">=5.6.4"
+        },
+        "time": "2017-12-02T17:00:10+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "AwkwardIdeas\\Migrator\\": "src/"
+            },
+            "files": [
+                "src/helpers.php"
+            ]
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chad Haney",
+                "email": "chad@awkwardideas.com"
+            },
+            {
+                "name": "Awkward Ideas",
+                "email": "support@awkwardideas.com"
+            }
+        ],
+        "description": "MySQL to Laravel Migrator"
+    },
+    {
+        "name": "awkwardideas/mypdo",
+        "version": "1.0.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/awkwardideas/MyPDO.git",
+            "reference": "a4fe50c5d768e4fa81cd96bc00e3e0661247b93c"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/awkwardideas/MyPDO/zipball/a4fe50c5d768e4fa81cd96bc00e3e0661247b93c",
+            "reference": "a4fe50c5d768e4fa81cd96bc00e3e0661247b93c",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.6.4"
+        },
+        "time": "2016-02-23T21:58:42+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "AwkwardIdeas\\MyPDO\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Chad Haney",
+                "email": "chad@awkwardideas.com"
+            },
+            {
+                "name": "Awkward Ideas",
+                "email": "support@awkwardideas.com"
+            }
+        ],
+        "description": "Simple PDO Connector format for MySQL"
+    },
+    {
         "name": "beyondcode/laravel-dump-server",
         "version": "1.2.2",
         "version_normalized": "1.2.2.0",
@@ -153,6 +241,243 @@
             "MIT"
         ],
         "description": "implementation of xdg base directory specification for php"
+    },
+    {
+        "name": "doctrine/cache",
+        "version": "v1.8.0",
+        "version_normalized": "1.8.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/cache.git",
+            "reference": "d768d58baee9a4862ca783840eca1b9add7a7f57"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/cache/zipball/d768d58baee9a4862ca783840eca1b9add7a7f57",
+            "reference": "d768d58baee9a4862ca783840eca1b9add7a7f57",
+            "shasum": ""
+        },
+        "require": {
+            "php": "~7.1"
+        },
+        "conflict": {
+            "doctrine/common": ">2.2,<2.4"
+        },
+        "require-dev": {
+            "alcaeus/mongo-php-adapter": "^1.1",
+            "doctrine/coding-standard": "^4.0",
+            "mongodb/mongodb": "^1.1",
+            "phpunit/phpunit": "^7.0",
+            "predis/predis": "~1.0"
+        },
+        "suggest": {
+            "alcaeus/mongo-php-adapter": "Required to use legacy MongoDB driver"
+        },
+        "time": "2018-08-21T18:01:43+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.8.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Doctrine\\Common\\Cache\\": "lib/Doctrine/Common/Cache"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com"
+            },
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com"
+            },
+            {
+                "name": "Johannes Schmitt",
+                "email": "schmittjoh@gmail.com"
+            }
+        ],
+        "description": "Caching library offering an object-oriented API for many cache backends",
+        "homepage": "https://www.doctrine-project.org",
+        "keywords": [
+            "cache",
+            "caching"
+        ]
+    },
+    {
+        "name": "doctrine/dbal",
+        "version": "v2.9.2",
+        "version_normalized": "2.9.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/dbal.git",
+            "reference": "22800bd651c1d8d2a9719e2a3dc46d5108ebfcc9"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/dbal/zipball/22800bd651c1d8d2a9719e2a3dc46d5108ebfcc9",
+            "reference": "22800bd651c1d8d2a9719e2a3dc46d5108ebfcc9",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/cache": "^1.0",
+            "doctrine/event-manager": "^1.0",
+            "ext-pdo": "*",
+            "php": "^7.1"
+        },
+        "require-dev": {
+            "doctrine/coding-standard": "^5.0",
+            "jetbrains/phpstorm-stubs": "^2018.1.2",
+            "phpstan/phpstan": "^0.10.1",
+            "phpunit/phpunit": "^7.4",
+            "symfony/console": "^2.0.5|^3.0|^4.0",
+            "symfony/phpunit-bridge": "^3.4.5|^4.0.5"
+        },
+        "suggest": {
+            "symfony/console": "For helpful console commands such as SQL execution and import of files."
+        },
+        "time": "2018-12-31T03:27:51+00:00",
+        "bin": [
+            "bin/doctrine-dbal"
+        ],
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "2.9.x-dev",
+                "dev-develop": "3.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Doctrine\\DBAL\\": "lib/Doctrine/DBAL"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com"
+            },
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com"
+            }
+        ],
+        "description": "Powerful PHP database abstraction layer (DBAL) with many features for database schema introspection and management.",
+        "homepage": "https://www.doctrine-project.org/projects/dbal.html",
+        "keywords": [
+            "abstraction",
+            "database",
+            "dbal",
+            "mysql",
+            "persistence",
+            "pgsql",
+            "php",
+            "queryobject"
+        ]
+    },
+    {
+        "name": "doctrine/event-manager",
+        "version": "v1.0.0",
+        "version_normalized": "1.0.0.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/doctrine/event-manager.git",
+            "reference": "a520bc093a0170feeb6b14e9d83f3a14452e64b3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/doctrine/event-manager/zipball/a520bc093a0170feeb6b14e9d83f3a14452e64b3",
+            "reference": "a520bc093a0170feeb6b14e9d83f3a14452e64b3",
+            "shasum": ""
+        },
+        "require": {
+            "php": "^7.1"
+        },
+        "conflict": {
+            "doctrine/common": "<2.9@dev"
+        },
+        "require-dev": {
+            "doctrine/coding-standard": "^4.0",
+            "phpunit/phpunit": "^7.0"
+        },
+        "time": "2018-06-11T11:59:03+00:00",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Doctrine\\Common\\": "lib/Doctrine/Common"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Roman Borschel",
+                "email": "roman@code-factory.org"
+            },
+            {
+                "name": "Benjamin Eberlei",
+                "email": "kontakt@beberlei.de"
+            },
+            {
+                "name": "Guilherme Blanco",
+                "email": "guilhermeblanco@gmail.com"
+            },
+            {
+                "name": "Jonathan Wage",
+                "email": "jonwage@gmail.com"
+            },
+            {
+                "name": "Johannes Schmitt",
+                "email": "schmittjoh@gmail.com"
+            },
+            {
+                "name": "Marco Pivetta",
+                "email": "ocramius@gmail.com"
+            }
+        ],
+        "description": "Doctrine Event Manager component",
+        "homepage": "https://www.doctrine-project.org/projects/event-manager.html",
+        "keywords": [
+            "event",
+            "eventdispatcher",
+            "eventmanager"
+        ]
     },
     {
         "name": "doctrine/inflector",
@@ -1312,17 +1637,17 @@
     },
     {
         "name": "nesbot/carbon",
-        "version": "2.18.0",
-        "version_normalized": "2.18.0.0",
+        "version": "2.19.0",
+        "version_normalized": "2.19.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/briannesbitt/Carbon.git",
-            "reference": "8322b7bd1805be31867c13bf3cdaab948a0dd406"
+            "reference": "c3545b39197d314205226ac3c33cb4db99aa54ab"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/8322b7bd1805be31867c13bf3cdaab948a0dd406",
-            "reference": "8322b7bd1805be31867c13bf3cdaab948a0dd406",
+            "url": "https://api.github.com/repos/briannesbitt/Carbon/zipball/c3545b39197d314205226ac3c33cb4db99aa54ab",
+            "reference": "c3545b39197d314205226ac3c33cb4db99aa54ab",
             "shasum": ""
         },
         "require": {
@@ -1338,7 +1663,7 @@
             "phpunit/phpunit": "^7.5 || ^8.0",
             "squizlabs/php_codesniffer": "^3.4"
         },
-        "time": "2019-05-16T18:44:35+00:00",
+        "time": "2019-05-30T10:15:05+00:00",
         "type": "library",
         "extra": {
             "laravel": {
@@ -1493,17 +1818,17 @@
     },
     {
         "name": "opis/closure",
-        "version": "3.2.0",
-        "version_normalized": "3.2.0.0",
+        "version": "3.3.0",
+        "version_normalized": "3.3.0.0",
         "source": {
             "type": "git",
             "url": "https://github.com/opis/closure.git",
-            "reference": "09b4389715a7eec100176ea58286649181753508"
+            "reference": "f846725591203098246276b2e7b9e8b7814c4965"
         },
         "dist": {
             "type": "zip",
-            "url": "https://api.github.com/repos/opis/closure/zipball/09b4389715a7eec100176ea58286649181753508",
-            "reference": "09b4389715a7eec100176ea58286649181753508",
+            "url": "https://api.github.com/repos/opis/closure/zipball/f846725591203098246276b2e7b9e8b7814c4965",
+            "reference": "f846725591203098246276b2e7b9e8b7814c4965",
             "shasum": ""
         },
         "require": {
@@ -1511,13 +1836,13 @@
         },
         "require-dev": {
             "jeremeamia/superclosure": "^2.0",
-            "phpunit/phpunit": "^4.0|^5.0|^6.0|^7.0"
+            "phpunit/phpunit": "^4.0 || ^5.0 || ^6.0 || ^7.0"
         },
-        "time": "2019-05-05T12:50:25+00:00",
+        "time": "2019-05-31T20:04:32+00:00",
         "type": "library",
         "extra": {
             "branch-alias": {
-                "dev-master": "3.2.x-dev"
+                "dev-master": "3.3.x-dev"
             }
         },
         "installation-source": "dist",
@@ -2641,6 +2966,60 @@
         ]
     },
     {
+        "name": "reliese/laravel",
+        "version": "v0.0.13",
+        "version_normalized": "0.0.13.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/reliese/laravel.git",
+            "reference": "10075c5f5e67efba18d781216ff5a0ffa3fc2d7f"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/reliese/laravel/zipball/10075c5f5e67efba18d781216ff5a0ffa3fc2d7f",
+            "reference": "10075c5f5e67efba18d781216ff5a0ffa3fc2d7f",
+            "shasum": ""
+        },
+        "require": {
+            "doctrine/dbal": "~2.5",
+            "illuminate/console": "~5.1",
+            "illuminate/contracts": "~5.1",
+            "illuminate/database": "~5.1",
+            "illuminate/filesystem": "~5.1",
+            "illuminate/support": "~5.1",
+            "php": ">=5.6.4"
+        },
+        "require-dev": {
+            "fzaninotto/faker": "~1.4",
+            "mockery/mockery": "0.9.*",
+            "phpunit/phpunit": "~5.0"
+        },
+        "time": "2017-02-04T15:50:39+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Reliese\\": "src/"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Cristian Llanos",
+                "email": "cristianllanos@outlook.com"
+            }
+        ],
+        "description": "Reliese Components for Laravel Framework code generation.",
+        "homepage": "http://cristianllanos.com",
+        "keywords": [
+            "laravel",
+            "reliese"
+        ]
+    },
+    {
         "name": "sebastian/code-unit-reverse-lookup",
         "version": "1.0.1",
         "version_normalized": "1.0.1.0",
@@ -3227,6 +3606,62 @@
         ],
         "description": "Library that helps with managing the version number of Git-hosted PHP projects",
         "homepage": "https://github.com/sebastianbergmann/version"
+    },
+    {
+        "name": "spatie/laravel-migrate-fresh",
+        "version": "1.5.4",
+        "version_normalized": "1.5.4.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/spatie/laravel-migrate-fresh.git",
+            "reference": "0949340fff1e34f8f004477a4f037598dd5e1352"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/spatie/laravel-migrate-fresh/zipball/0949340fff1e34f8f004477a4f037598dd5e1352",
+            "reference": "0949340fff1e34f8f004477a4f037598dd5e1352",
+            "shasum": ""
+        },
+        "require": {
+            "illuminate/console": "^5.3.28",
+            "illuminate/events": "^5.3.28",
+            "php": "^7.0"
+        },
+        "require-dev": {
+            "mockery/mockery": "^1.0",
+            "orchestra/testbench": "^3.3",
+            "phpunit/phpunit": "5.*"
+        },
+        "time": "2018-08-27T13:42:54+00:00",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-4": {
+                "Spatie\\MigrateFresh\\": "src"
+            }
+        },
+        "notification-url": "https://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Freek Van der Herten",
+                "email": "freek@spatie.be",
+                "homepage": "https://spatie.be",
+                "role": "Developer"
+            }
+        ],
+        "description": "A command to build up the database from scratch",
+        "homepage": "https://github.com/spatie/laravel-migrate-fresh",
+        "keywords": [
+            "database",
+            "eloquent",
+            "fresh",
+            "laravel-migrate-fresh",
+            "migrate",
+            "spatie"
+        ]
     },
     {
         "name": "swiftmailer/swiftmailer",

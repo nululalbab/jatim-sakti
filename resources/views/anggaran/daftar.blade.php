@@ -9,7 +9,7 @@
                     <p class="card-description">
                       Data tabel pengajuan yang diajukan ke departemen SLA
                     </p>
-                    <table class="table table-striped">
+                    <table id="tabeldaftar" class="table display nowrap" style="width:100%">
                       <thead>
                         <tr>
                           <th>
@@ -19,7 +19,13 @@
                             User
                           </th>
                           <th>
-                            Nama Pengajuan
+                            Unit Kerja - Status
+                          </th>
+                          <th>
+                            No Memo
+                          </th>
+                          <th>
+                            Perihal
                           </th>
                           <th>
                             Progress
@@ -39,40 +45,74 @@
                         </tr>
                       </thead>
                       <tbody>
-                        <tr>
-                          <td >
-                          01/01/2019
-                          </td>
-                          <td >
-                            {{Auth::user()->name}}
-                          </td>
-                          <td>
-                            Jasa Dekorasi dan Lighting
+                        @foreach ($anggaran as $anggaran)
+                          <tr>
+                            <td >
+                          {{$anggaran->tanggal_anggaran}}
+                            </td>
+                            <td >
+                              {{Auth::user()->name}}
+                            </td>
+                            <td>
+                              {{$anggaran->user->unit->nama_unit}}
+                              @if ($anggaran->status=="1")
+                                  <button class="btn btn-block btn-sm btn-gradient-primary">Cair</button>
+                                @else <button class="btn btn-block btn-sm btn-gradient-primary"> Belum Cair</button>
+                              @endif
+                            </td>
+                            <td>
+                              {{$anggaran->memo}}
+                            </td>
+                            <td>
+                              {{$anggaran->perihal}}
+                            </td>
+                            <td>
+                              {{$anggaran->progress}} / {{$anggaran->tanggal_progress}}
+                            </td>
+                            <td>
+                              {{$anggaran->jumlah}}
+                            </td>
+                            <td>
+                              {{$anggaran->coa}}
+                            </td>
+                            <td>
+                              {{$anggaran->admin->name}} {{$anggaran->admin->id_role}}
+                            </td>
+                            <td>
+                              <button class="btn btn-block btn-sm btn-gradient-primary">Dokumen</button>
+                            </td>
 
-                          </td>
-                          <td>
-                            Validasi
-                          </td>
-                          <td>
-                            Rp 35.000.000
-                          </td>
-                          <td>
-                            Mata Anggaran
-                          </td>
-                          <td>
-                            Yuni
-                          </td>
-                          <td>
-                            <button class="btn btn-block btn-sm btn-gradient-primary">Dokumen</button>
-                          </td>
+                          </tr>
+                        @endforeach
 
-                        </tr>
+
+
+
+
 
                       </tbody>
                     </table>
                   </div>
                 </div>
               </div>
+
+
+
+              <script>
+
+
+              $(document).ready(function() {
+                $('#tabeldaftar').DataTable( {
+                    dom: 'Bfrtip',
+                    buttons: [
+                    'copy', 'csv', 'excel', 'pdf',
+                    ],
+                    "scrollY": 200,
+                    "scrollX": true
+
+                      } );
+                  } );
+              </script>
 
             <!-- content-wrapper ends -->
 

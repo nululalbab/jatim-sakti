@@ -28,6 +28,8 @@ class DaftarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function showDaftarAnggaran() {
+      $anggaran = Anggaran::all();
+
         return view('vendor.multiauth.daftar');
     }
 
@@ -35,7 +37,7 @@ class DaftarController extends Controller
 
     protected function create(array $data)
     {
-        return Pegawai::create([
+        return Anggaran::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),

@@ -14,6 +14,22 @@
   <!-- endinject -->
   <link rel="shortcut icon" href="{!! asset('assets/images/favicon.png') !!}" />
 
+  <script src="{!! asset('assets/vendors/js/vendor.bundle.base.js') !!}"></script>
+  <script src="{!! asset('assets/vendors/js/vendor.bundle.addons.js') !!}"></script>
+    <script  type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script  type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
+    <script  type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
+    <script  type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.flash.min.js"></script>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jszip/3.1.3/jszip.min.js"></script>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/pdfmake.min.js"></script>
+    <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
+    <script  type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
+    <script  type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.css"/>
+
+  <script type="text/javascript" src="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.js"></script>
+
 
     <!-- CSRF Token -->
     <meta name="csrf-token" content="{{ csrf_token() }}">
@@ -22,8 +38,9 @@
 
     <!-- Scripts -->
     <!-- plugins:js -->
-    <script src="{!! asset('assets/vendors/js/vendor.bundle.base.js') !!}"></script>
-    <script src="{!! asset('assets/vendors/js/vendor.bundle.addons.js') !!}"></script>
+
+
+
     <!-- endinject -->
     <!-- Plugin js for this page-->
     <!-- End plugin js for this page-->
@@ -50,7 +67,9 @@
       <nav class="navbar default-layout-navbar col-lg-12 col-12 p-0 fixed-top d-flex flex-row">
         <div class="text-center navbar-brand-wrapper d-flex align-items-center justify-content-center">
 
-          <img src="{!! asset('assets/images/logo.png') !!}" alt="logo" href="{{ route('home') }}">
+            <a class="navbar-brand brand-logo" href="{{ route('home') }}"><img src="{!! asset('assets/images/logo.png') !!}" alt="logo" /></a>
+            <a class="navbar-brand brand-logo-mini" href="{{ route('home') }}"><img src="{!! asset('assets/images/logo.png') !!}" alt="logo" /></a>
+
 
         </div>
         <div class="navbar-menu-wrapper d-flex align-items-stretch">
@@ -90,12 +109,15 @@
                           @csrf
                       </form>
                   </div>
+
               </li>
           @endguest
       </ul>
 
 {{-- /Account Things --}}
-
+<button class="navbar-toggler navbar-toggler-right d-lg-none align-self-center" type="button" data-toggle="offcanvas">
+  <span class="mdi mdi-menu"></span>
+</button>
         </div>
       </nav>
       <!-- partial -->

@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('multiauth::layouts.app') 
 
 @section('content')
   <div class="col-lg-12 grid-margin stretch-card">
@@ -8,7 +8,7 @@
         <p class="card-description">
           Data tabel progress validasi anggaran yang diajukan ke departemen SLA
         </p>
-        <form class="" action="{{ Route('admin.ambil.anggaran')}}" method="post">
+        <form class="" action="{{ Route('admin.edit.anggaran')}}" method="post">
         {{ csrf_field() }}
         <table id="tabeldaftar" class="table display nowrap" style="width:100%">
           <thead>

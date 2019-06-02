@@ -40,8 +40,9 @@
     Route::get('daftar', 'AdminController@showDaftarAnggaran')->name('admin.daftar.anggaran');
     Route::post('daftar', 'AdminController@ambilAnggaran')->name('admin.ambil.anggaran');
     Route::get('progress', 'AdminController@showProgressAnggaran')->name('admin.progress.anggaran');
+    Route::post('progress', 'AdminController@editAnggaran')->name('admin.edit.anggaran');
     Route::get('pencairan', 'AdminController@showPencairanAnggaran')->name('admin.pencairan.anggaran');
-
+    Route::post('pencairan', 'AdminController@cairkanAnggaran')->name('admin.cair.anggaran');
 
 
     Route::fallback(function () {

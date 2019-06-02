@@ -47,6 +47,7 @@ class Anggaran extends Eloquent
 	];
 
 	protected $fillable = [
+		'id_anggaran',
 		'id_user',
 		'id_admin',
 		'perihal',

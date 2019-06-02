@@ -75,13 +75,32 @@ class AdminController extends Controller
         return view('vendor.multiauth.pencairan')->with($data);
     }
 
+    public function cairkanAnggaran(Request $request) {
+      $idadmin=auth('admin')->user()->id;
+      Anggaran::where('id_anggaran', $request->id_anggaran)->update([
+        'status'=> 1
+      ]);
+        return redirect()->back();
+    }
+
+
+    public function editAnggaran(Request $request) {
+      $idadmin=auth('admin')->user()->id;
+      Anggaran::where('id_anggaran', $request->id_anggaran)->update([
+        'status'=> 1
+      ]);
+        return redirect()->back();
+    }
+
     public function ambilAnggaran(Request $request) {
       $idadmin=auth('admin')->user()->id;
-      $id_anggaran1 = $request->$id_anggaran;
+      $id_anggaran1 = $request->id_anggaran;
       Anggaran::where('id_anggaran', $id_anggaran1)->update([
-        'id_admin'=> $idadmin
+        'id_admin'=> $idadmin,
+        'progress'=>'Validasi',
+        'tanggal_progress'=>now()
       ]);
-        return view('vendor.multiauth.daftar')->with($data);
+      return redirect()->back();
     }
 
 

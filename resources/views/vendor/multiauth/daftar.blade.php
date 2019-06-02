@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('multiauth::layouts.app') 
 @section('content')
   <!-- partial -->
 

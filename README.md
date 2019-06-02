@@ -15,4 +15,11 @@ Lakukan migrasi database dengan import jatimsakti.sql dengan nama database jatim
 Direktori dapat diakses di
 
 http://localhost:8000/home
+
 http://localhost:8000/admin
+
+ID Password
+
+Super Admin = super@admin.com   pass: secret123
+Sub Admin = <email>             pass : password
+User =    <email>               pass : password

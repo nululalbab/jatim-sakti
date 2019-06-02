@@ -8,7 +8,7 @@
                 <div class="card-header">{{ __('Form Anggaran') }}</div>
 
                 <div class="card-body">
-                    <form method="POST" action="{{ route('register') }}">
+                    <form method="POST" action="{{ route('post.form.anggaran') }}" enctype="multipart/form-data">
                         @csrf
 
                         <div class="form-group row">
@@ -55,40 +55,74 @@
                         </div>
 
                         <div class="form-group row">
+                            <label for="jumlah" class="col-md-4 col-form-label text-md-right">{{ __('Jumlah') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="jumlah" type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah" value="{{ old('jumlah') }}" required autocomplete="jumlah" autofocus>
+
+                                @error('jumlah')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+
+                        <div class="form-group row">
+                            <label for="coa" class="col-md-4 col-form-label text-md-right">{{ __('COA') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="coa" type="text" class="form-control @error('coa') is-invalid @enderror" name="coa" value="{{ old('coa') }}" required autocomplete="coa" autofocus>
+
+                                @error('coa')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                          <input id="user" type="hidden" class="form-control @error('user') is-invalid @enderror" name="user" value="{{Auth::user()->id}}" required autocomplete="user" autofocus>
+
+                        {{-- <div class="form-group row">
                             <label for="Unit" class="col-md-4 col-form-label text-md-right">{{ __('Unit') }}</label>
 
                             <div class="col-md-6">
+                              <select id="unit" type="text" class="form-control @error('unit') is-invalid @enderror" name="unit" value="{{ old('unit') }}" required autocomplete="unit" autofocus>
+                              @foreach ($unit as $unit)
+                                <option value="{{$unit->id_unit}}">{{$unit->nama_unit}}</option>
+                              @endforeach
+                                </select>
 
-                                <select id="unit" type="text" class="form-control @error('unit') is-invalid @enderror" name="unit" value="{{ old('unit') }}" required autocomplete="unit" autofocus>
-                                  <option value="volvo">Unit Kerja Lain</option>
-                                  <option value="saab">Unit Kerja Lain</option>
-                                  <option value="mercedes">Unit Kerja Lain</option>
-                                  <option value="audi">Unit Kerja Lain</option>
-                                  </select>
                                 @error('unit')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
-                        </div>
+                        </div> --}}
+
+                          <input id="status" type="hidden" class="form-control @error('status') is-invalid @enderror" name="status" value="0" required autocomplete="status" autofocus>
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
+                            <label for="file" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
 
                             <div class="col-md-6">
                             <div class="custom-file">
-                                <input type="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
+                              <div class="form-group">
+                                <input type="file" name="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                             </div>
 
-                                @error('tanggal')
+                                @error('file')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                 @enderror
                             </div>
                         </div>
+                      </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">

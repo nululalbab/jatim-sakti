@@ -145,8 +145,9 @@
             </a>
             <div class="collapse" id="ui-basic">
               <ul class="nav flex-column sub-menu">
-                <li class="nav-item"> <a class="nav-link" href="{{ route('daftar.anggaran') }}">Daftar Anggaran</a></li>
-                <li class="nav-item"> <a class="nav-link" href="{{ route('form.anggaran') }}">Pengajuan Anggaran</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.daftar.anggaran') }}">Anggaran Masuk</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.progress.anggaran') }}">Proses Anggaran</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('admin.pencairan.anggaran') }}">Pencairan Anggaran</a></li>
               </ul>
             </div>
           </li>

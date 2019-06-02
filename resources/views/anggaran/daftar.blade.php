@@ -51,7 +51,7 @@
                           {{$anggaran->tanggal_anggaran}}
                             </td>
                             <td >
-                              {{Auth::user()->name}}
+                              {{$anggaran->user->name}}
                             </td>
                             <td>
                               {{$anggaran->user->unit->nama_unit}}
@@ -76,7 +76,10 @@
                               {{$anggaran->coa}}
                             </td>
                             <td>
+                              @if (!empty($anggaran->admin))
                               {{$anggaran->admin->name}} {{$anggaran->admin->id_role}}
+                              @endif
+
                             </td>
                             <td>
                               <button class="btn btn-block btn-sm btn-gradient-primary">Dokumen</button>

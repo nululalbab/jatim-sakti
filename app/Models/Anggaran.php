@@ -11,7 +11,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Anggaran
- * 
+ *
  * @property int $id_anggaran
  * @property int $id_admin
  * @property int $id_user
@@ -24,7 +24,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  * @property string $coa
  * @property string $dokumen
  * @property bool $status
- * 
+ *
  * @property \App\Models\Admin $admin
  * @property \App\Models\User $user
  *
@@ -47,6 +47,8 @@ class Anggaran extends Eloquent
 	];
 
 	protected $fillable = [
+		'id_user',
+		'id_admin',
 		'perihal',
 		'memo',
 		'tanggal_anggaran',

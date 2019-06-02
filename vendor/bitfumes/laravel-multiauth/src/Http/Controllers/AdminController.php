@@ -2,6 +2,10 @@
 
 namespace Bitfumes\Multiauth\Http\Controllers;
 
+
+use App\Models\Anggaran;
+use App\Models\User;
+use App\Models\Unit;
 use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -36,11 +40,48 @@ class AdminController extends Controller
     }
 
     public function showDaftarAnggaran() {
-        return view('vendor.multiauth.daftar');
+      $user = User::all();
+      $unit = Unit::all();
+      $anggaran = Anggaran::whereNull('id_admin',)->get();
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran' => $anggaran
+      );
+        return view('vendor.multiauth.daftar')->with($data);
     }
 
-    public function showFormAnggaran() {
-        return view('vendor.multiauth.form');
+    public function showProgressAnggaran() {
+      $user = User::all();
+      $unit = Unit::all();
+      $anggaran = Anggaran::whereNotNull('progress')->get();
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran' => $anggaran
+      );
+        return view('vendor.multiauth.progress')->with($data);
+    }
+
+    public function showPencairanAnggaran() {
+      $user = User::all();
+      $unit = Unit::all();
+      $anggaran = Anggaran::where('status',0)->get();
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran' => $anggaran
+      );
+        return view('vendor.multiauth.pencairan')->with($data);
+    }
+
+    public function ambilAnggaran(Request $request) {
+      $idadmin=auth('admin')->user()->id;
+      $id_anggaran1 = $request->$id_anggaran;
+      Anggaran::where('id_anggaran', $id_anggaran1)->update([
+        'id_admin'=> $idadmin
+      ]);
+        return view('vendor.multiauth.daftar')->with($data);
     }
 
 

@@ -38,7 +38,10 @@
 
     //Anggaran
     Route::get('daftar', 'AdminController@showDaftarAnggaran')->name('admin.daftar.anggaran');
-    Route::get('form', 'AdminController@showFormAnggaran')->name('admin.form.anggaran');
+    Route::post('daftar', 'AdminController@ambilAnggaran')->name('admin.ambil.anggaran');
+    Route::get('progress', 'AdminController@showProgressAnggaran')->name('admin.progress.anggaran');
+    Route::get('pencairan', 'AdminController@showPencairanAnggaran')->name('admin.pencairan.anggaran');
+
 
 
     Route::fallback(function () {

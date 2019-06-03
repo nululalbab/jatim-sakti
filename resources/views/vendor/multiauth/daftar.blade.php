@@ -78,7 +78,7 @@
                       {{$anggaran->coa}}
                     </td>
                     <td>
-                      <button class="btn btn-block btn-sm btn-gradient-primary">Dokumen</button>
+                      <a name="download" id="download" class="btn btn-block btn-sm btn-gradient-primary" href="../storage/file/{{$anggaran->dokumen}}" role="button" download="">Dokumen</a>
                     </td>
                     <input type="hidden" name="id_anggaran" value="{{$anggaran->id_anggaran}}">
                     <td>

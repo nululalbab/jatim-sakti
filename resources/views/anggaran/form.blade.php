@@ -6,7 +6,7 @@
         <div class="col-md-8">
             <div class="card">
                 <div class="card-header">{{ __('Form Anggaran') }}</div>
-
+                
                 <div class="card-body">
                     <form method="POST" action="{{ route('post.form.anggaran') }}" enctype="multipart/form-data">
                         @csrf
@@ -112,7 +112,8 @@
                             <div class="custom-file">
                               <div class="form-group">
                                 <input type="file" name="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
+                                <!-- <label class="custom-file-label" for="inputGroupFile01">Choose file</label> -->
+                                <div><small id="helpId" class="text-muted">Upload file gambar</small></div>
                             </div>
 
                                 @error('file')
@@ -127,7 +128,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Submit') }}
                                 </button>
                             </div>
                         </div>

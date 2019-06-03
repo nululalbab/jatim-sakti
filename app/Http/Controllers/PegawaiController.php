@@ -57,56 +57,34 @@ class PegawaiController extends Controller
     }
 
     public function createFormAnggaran(Request $request) {
+
+      $validatedData = $request->validate([
+        'file' => 'required|mimes:png,jpg'
+      ]);
+
+
+      $filename = pathinfo($request->file('file')->getClientOriginalName(), PATHINFO_FILENAME);
+
+      $uniqueFilename = $filename.'_MemoNo'.$request->input('memo').'.'.$request->file('file')->getClientOriginalExtension();
+
+      $path = $request->file('file')->storeAs('public/file',$uniqueFilename);
+
       Anggaran::create([
         'id_user' => Auth::user()->id,
+        'id_admin' => NULL,
+        'progress' => NULL,
+        'tanggal_progress' => NULL,
         'perihal' => $request->perihal,
         'memo' => $request->memo,
         'tanggal_anggaran' => $request->tanggal,
         'jumlah' => $request->jumlah,
         'coa' => $request->coa,
         'status' => $request->status,
-        'dokumen' => $request->file
+        'dokumen' => $uniqueFilename
       ]);
-    $file= $request->file;
-              // nama file
-        echo 'File Name: '.$file->getClientOriginalName();
-        echo '<br>';
 
-              // ekstensi file
-        echo 'File Extension: '.$file->getClientOriginalExtension();
-        echo '<br>';
-
-              // real path
-        echo 'File Real Path: '.$file->getRealPath();
-        echo '<br>';
-
-              // ukuran file
-        echo 'File Size: '.$file->getSize();
-        echo '<br>';
-
-              // tipe mime
-        echo 'File Mime Type: '.$file->getMimeType();
-
-              // isi dengan nama folder tempat kemana file diupload
-        $tujuan_upload = 'data_file';
-
-              // upload file
-        $file->move($tujuan_upload,$file->getClientOriginalName());
-
-
-        return redirect()->back();
+        return redirect()->back()->with('success','Anggaran berhasil diinput');
     }
 
-    public function proses_upload(Request $request){
-		$this->validate($request, [
-			'file' => 'required',
-			'keterangan' => 'required',
-		]);
-
-		// menyimpan data file yang diupload ke variabel $file
-		$file = $request->file('file');
-
-
-	}
 
 }

@@ -1,4 +1,4 @@
-@extends('multiauth::layouts.app') 
+@extends('multiauth::layouts.app')
 
 @section('content')
   <div class="col-lg-12 grid-margin stretch-card">
@@ -8,9 +8,7 @@
         <p class="card-description">
           Data tabel progress validasi anggaran yang diajukan ke departemen SLA
         </p>
-        <form class="" action="{{ Route('admin.edit.anggaran')}}" method="post">
-        {{ csrf_field() }}
-        <table id="tabeldaftar" class="table display nowrap" style="width:100%">
+              <table id="tabeldaftar" class="table display nowrap" style="width:100%">
           <thead>
             <tr>
               <th>
@@ -81,7 +79,7 @@
                 </td>
                 <input type="hidden" name="id_anggaran" value="{{$anggaran->id_anggaran}}">
                 <td>
-                  <button type="submit" class="btn btn-block btn-sm btn-gradient-primary">Edit</button>
+                    <a href="{{ route('admin.edit.progress.anggaran',$anggaran->id_anggaran) }}"><button class="btn btn-block btn-sm btn-gradient-primary">Edit</button></a>
                 </td>
               </tr>
             @endforeach
@@ -108,4 +106,6 @@
           } );
       } );
   </script>
+
+
 @endsection

@@ -91,7 +91,7 @@
 
                       </tbody>
                     </table>
-                    {{-- <h2>Total Anggaran Rp.  {{$totalAnggaran}}</h2> --}}
+                    <h2>Total Anggaran Realisasi Unit Rp.  {{$totalAnggaran}}</h2>
                   </div>
                 </div>
               </div>

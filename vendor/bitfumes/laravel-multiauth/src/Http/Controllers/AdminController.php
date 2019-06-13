@@ -54,7 +54,7 @@ class AdminController extends Controller
     public function showProgressAnggaran() {
       $user = User::all();
       $unit = Unit::all();
-      $anggaran = Anggaran::whereNotNull('progress')->get();
+      $anggaran = Anggaran::whereNotNull('progress')->where('id_admin',auth('admin')->user()->id)->get();
       $data = array(
         'user' => $user,
         'unit' => $unit,
@@ -63,10 +63,23 @@ class AdminController extends Controller
         return view('vendor.multiauth.progress')->with($data);
     }
 
+    public function showEditAnggaran($id) {
+      $user = User::all();
+      $unit = Unit::all();
+      $anggaran = Anggaran::where('id_anggaran',$id)->get();
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran' => $anggaran
+      );
+        return view('vendor.multiauth.editProgress')->with($data);
+
+    }
+
     public function showPencairanAnggaran() {
       $user = User::all();
       $unit = Unit::all();
-      $anggaran = Anggaran::where('status',0)->get();
+      $anggaran = Anggaran::where('status',0)->where('id_admin',auth('admin')->user()->id)->get();
       $data = array(
         'user' => $user,
         'unit' => $unit,
@@ -85,11 +98,15 @@ class AdminController extends Controller
 
 
     public function editAnggaran(Request $request) {
-      $idadmin=auth('admin')->user()->id;
       Anggaran::where('id_anggaran', $request->id_anggaran)->update([
-        'status'=> 1
+        'memo'=> $request->memo,
+        'perihal'=> $request->perihal,
+        'jumlah'=> $request->jumlah,
+        'coa'=> $request->coa,
+        'progress'=> $request->progress,
+        'tanggal_progress'=>now()
       ]);
-        return redirect()->back();
+        return view('vendor.multiauth.editProgress');
     }
 
     public function ambilAnggaran(Request $request) {

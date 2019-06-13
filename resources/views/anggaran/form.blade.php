@@ -85,23 +85,7 @@
 
                           <input id="user" type="hidden" class="form-control @error('user') is-invalid @enderror" name="user" value="{{Auth::user()->id}}" required autocomplete="user" autofocus>
 
-                        {{-- <div class="form-group row">
-                            <label for="Unit" class="col-md-4 col-form-label text-md-right">{{ __('Unit') }}</label>
 
-                            <div class="col-md-6">
-                              <select id="unit" type="text" class="form-control @error('unit') is-invalid @enderror" name="unit" value="{{ old('unit') }}" required autocomplete="unit" autofocus>
-                              @foreach ($unit as $unit)
-                                <option value="{{$unit->id_unit}}">{{$unit->nama_unit}}</option>
-                              @endforeach
-                                </select>
-
-                                @error('unit')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div> --}}
 
                           <input id="status" type="hidden" class="form-control @error('status') is-invalid @enderror" name="status" value="0" required autocomplete="status" autofocus>
 
@@ -114,6 +98,7 @@
                                 <input type="file" name="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
                                 <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
                             </div>
+                            
 
                                 @error('file')
                                     <span class="invalid-feedback" role="alert">

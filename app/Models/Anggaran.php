@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Sat, 01 Jun 2019 17:29:18 +0000.
+ * Date: Mon, 17 Jun 2019 16:42:00 +0000.
  */
 
 namespace App\Models;
@@ -11,20 +11,21 @@ use Reliese\Database\Eloquent\Model as Eloquent;
 
 /**
  * Class Anggaran
- *
+ * 
  * @property int $id_anggaran
  * @property int $id_admin
  * @property int $id_user
  * @property string $perihal
- * @property string $memo
+ * @property string $dokumen
+ * @property string $invoice
  * @property \Carbon\Carbon $tanggal_anggaran
  * @property string $progress
  * @property \Carbon\Carbon $tanggal_progress
  * @property int $jumlah
  * @property string $coa
- * @property string $dokumen
+ * @property string $keterangan
  * @property bool $status
- *
+ * 
  * @property \App\Models\Admin $admin
  * @property \App\Models\User $user
  *
@@ -32,6 +33,7 @@ use Reliese\Database\Eloquent\Model as Eloquent;
  */
 class Anggaran extends Eloquent
 {
+	protected $primaryKey = 'id_anggaran';
 	public $timestamps = false;
 
 	protected $casts = [
@@ -47,17 +49,17 @@ class Anggaran extends Eloquent
 	];
 
 	protected $fillable = [
-		'id_anggaran',
-		'id_user',
 		'id_admin',
+		'id_user',
 		'perihal',
-		'memo',
+		'dokumen',
+		'invoice',
 		'tanggal_anggaran',
 		'progress',
 		'tanggal_progress',
 		'jumlah',
 		'coa',
-		'dokumen',
+		'keterangan',
 		'status'
 	];
 

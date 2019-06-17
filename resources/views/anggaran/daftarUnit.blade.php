@@ -2,92 +2,103 @@
 @section('content')
           <!-- partial -->
 
-              <div class="col-lg-12 grid-margin stretch-card">
-                <div class="card">
-                  <div class="card-body">
-                    <h4 class="card-title">Daftar Pengajuan Anggaran</h4>
-                    <p class="card-description">
-                      Data tabel pengajuan yang diajukan ke departemen SLA
-                    </p>
-                    <table id="tabeldaftar" class="table display nowrap" style="width:100%">
-                      <thead>
-                        <tr>
-                          <th>
-                            Tanggal
-                          </th>
-                          <th>
-                            User
-                          </th>
-                          <th>
-                            Unit Kerja - Status
-                          </th>
-                          <th>
-                            No Memo
-                          </th>
-                          <th>
-                            Perihal
-                          </th>
-                          <th>
-                            Progress
-                          </th>
-                          <th>
-                            Amount
-                          </th>
-                          <th>
-                            COA
-                          </th>
-                          <th>
-                            Penanggung Jawab
-                          </th>
-                          <th>
-                            Dokumen
-                          </th>
-                        </tr>
-                      </thead>
-                      <tbody>
-                        @foreach ($anggaran as $anggaran)
-                          <tr>
-                            <td >
-                          {{$anggaran->tanggal_anggaran}}
-                            </td>
-                            <td >
-                              {{$anggaran->user->name}}
-                            </td>
-                            <td>
-                              {{$anggaran->user->unit->nama_unit}}
-                              @if ($anggaran->status=="1")
-                                  <button class="btn btn-block btn-sm btn-gradient-primary">Cair</button>
-                                @else <button class="btn btn-block btn-sm btn-gradient-primary"> Belum Cair</button>
-                              @endif
-                            </td>
-                            <td>
-                              {{$anggaran->memo}}
-                            </td>
-                            <td>
-                              {{$anggaran->perihal}}
-                            </td>
-                            <td>
-                              {{$anggaran->progress}} / {{$anggaran->tanggal_progress}}
-                            </td>
-                            <td>
-                              {{$anggaran->jumlah}}
-                            </td>
-                            <td>
-                              {{$anggaran->coa}}
-                            </td>
-                            <td>
-                              @if (!empty($anggaran->admin))
-                              {{$anggaran->admin->name}} {{$anggaran->admin->id_role}}
-                              @endif
+          <div class="col-lg-12 grid-margin stretch-card">
+            <div class="card">
+              <div class="card-body">
+                <h4 class="card-title">Daftar Pengajuan Anggaran</h4>
+                <p class="card-description">
+                  Data tabel pengajuan yang diajukan ke departemen SLA
+                </p>
+                <table id="tabeldaftar" class="table display nowrap" style="width:100%">
+                  <thead>
+                    <tr>
+                      <th>
+                        Tanggal
+                      </th>
+                      <th>
+                        User
+                      </th>
+                      <th>
+                        Unit Kerja
+                      </th>
+                      <th>
+                        No Dokumen
+                      </th>
+                      <th>
+                        No Invoice
+                      </th>
+                      <th>
+                        Perihal
+                      </th>
+                      <th>
+                        Progress
+                      </th>
+                      <th>
+                        Tanggal Progress
+                      </th>
+                      <th>
+                        Amount
+                      </th>
+                      <th>
+                        COA
+                      </th>
+                      <th>
+                        Penanggung Jawab
+                      </th>
+                      <th>
+                        Keterangan
+                      </th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($anggaran as $anggaran)
+                      <tr>
+                        <td >
+                      {{$anggaran->tanggal_anggaran}}
+                        </td>
+                        <td >
+                          {{$anggaran->user->name}}
+                        </td>
+                        <td>
+                          {{$anggaran->user->unit->nama_unit}}
+                        </td>
+                        <td>
+                          {{$anggaran->dokumen}}
+                        </td>
+                        <td>
+                          {{$anggaran->invoice}}
+                        </td>
+                        <td>
+                          {{$anggaran->perihal}}
+                        </td>
+                        <td>
+                          @if ($anggaran->progress==null)
+                              <button class="btn btn-block btn-sm btn-gradient-primary">Belum Diproses</button>
+                            @else <button class="btn btn-block btn-sm btn-gradient-primary">{{$anggaran->progress}}</button>
+                          @endif
+                        </td>
+                        <td>
+                          {{$anggaran->tanggal_progress}}
+                        </td>
+                        <td>
+                          {{$anggaran->jumlah}}
+                        </td>
+                        <td>
+                          {{$anggaran->coa}}
+                        </td>
+                        <td>
+                          @if (!empty($anggaran->admin))
+                          {{$anggaran->admin->name}} {{$anggaran->admin->id_role}}
+                          @endif
 
-                            </td>
-                            <td>
-                              <a href={{ asset("data_file/$anggaran->dokumen") }}>  <button class="btn btn-block btn-sm btn-gradient-primary">Dokumen</button></a>
+                        </td>
+                        <td>
+                        {{$anggaran->keterangan}}
+                        </td>
 
-                            </td>
+                      </tr>
+                    @endforeach
 
-                          </tr>
-                        @endforeach
 
                       </tbody>
                     </table>

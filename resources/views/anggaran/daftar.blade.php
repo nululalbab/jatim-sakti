@@ -19,16 +19,22 @@
                             User
                           </th>
                           <th>
-                            Unit Kerja - Status
+                            Unit Kerja
                           </th>
                           <th>
-                            No Memo
+                            No Dokumen
+                          </th>
+                          <th>
+                            No Invoice
                           </th>
                           <th>
                             Perihal
                           </th>
                           <th>
                             Progress
+                          </th>
+                          <th>
+                            Tanggal Progress
                           </th>
                           <th>
                             Amount
@@ -40,7 +46,7 @@
                             Penanggung Jawab
                           </th>
                           <th>
-                            Dokumen
+                            Keterangan
                           </th>
                         </tr>
                       </thead>
@@ -55,19 +61,24 @@
                             </td>
                             <td>
                               {{$anggaran->user->unit->nama_unit}}
-                              @if ($anggaran->status=="1")
-                                  <button class="btn btn-block btn-sm btn-gradient-primary">Cair</button>
-                                @else <button class="btn btn-block btn-sm btn-gradient-primary"> Belum Cair</button>
-                              @endif
                             </td>
                             <td>
-                              {{$anggaran->memo}}
+                              {{$anggaran->dokumen}}
+                            </td>
+                            <td>
+                              {{$anggaran->invoice}}
                             </td>
                             <td>
                               {{$anggaran->perihal}}
                             </td>
                             <td>
-                              {{$anggaran->progress}} / {{$anggaran->tanggal_progress}}
+                              @if ($anggaran->progress==null)
+                                  <button class="btn btn-block btn-sm btn-gradient-primary">Belum Diproses</button>
+                                @else <button class="btn btn-block btn-sm btn-gradient-primary">{{$anggaran->progress}}</button>
+                              @endif
+                            </td>
+                            <td>
+                              {{$anggaran->tanggal_progress}}
                             </td>
                             <td>
                               {{$anggaran->jumlah}}
@@ -82,8 +93,7 @@
 
                             </td>
                             <td>
-                              <a href={{ asset("data_file/$anggaran->dokumen") }}>  <button class="btn btn-block btn-sm btn-gradient-primary">Dokumen</button></a>
-
+                            {{$anggaran->keterangan}}
                             </td>
 
                           </tr>
@@ -107,7 +117,7 @@
                     buttons: [
                     'copy', 'csv', 'excel', 'pdf',
                     ],
-                    "scrollY": 200,
+                    "scrollY": 500,
                     "scrollX": true
 
                       } );

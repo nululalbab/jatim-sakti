@@ -42,7 +42,7 @@ class AdminController extends Controller
     public function showDaftarAnggaran() {
       $user = User::all();
       $unit = Unit::all();
-      $anggaran = Anggaran::whereNull('id_admin',)->get();
+      $anggaran = Anggaran::whereNull('id_admin')->get();
       $data = array(
         'user' => $user,
         'unit' => $unit,
@@ -98,21 +98,27 @@ class AdminController extends Controller
 
 
     public function editAnggaran(Request $request) {
-      Anggaran::where('id_anggaran', $request->id_anggaran)->update([
-        'memo'=> $request->memo,
-        'perihal'=> $request->perihal,
-        'jumlah'=> $request->jumlah,
-        'coa'=> $request->coa,
+            Anggaran::where('id_anggaran', $request->id_anggaran)->update([
+        'keterangan'=> $request->keterangan,
+
         'progress'=> $request->progress,
         'tanggal_progress'=>now()
       ]);
-        return view('vendor.multiauth.editProgress');
+
+      $user = User::all();
+      $unit = Unit::all();
+      $anggaran = Anggaran::whereNotNull('progress')->where('id_admin',auth('admin')->user()->id)->get();
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran' => $anggaran
+      );
+        return view('vendor.multiauth.progress')->with($data);
     }
 
     public function ambilAnggaran(Request $request) {
       $idadmin=auth('admin')->user()->id;
-      $id_anggaran1 = $request->id_anggaran;
-      Anggaran::where('id_anggaran', $id_anggaran1)->update([
+        Anggaran::where('id_anggaran', $request->id_anggaran)->update([
         'id_admin'=> $idadmin,
         'progress'=>'Validasi',
         'tanggal_progress'=>now()

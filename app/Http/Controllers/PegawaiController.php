@@ -97,42 +97,15 @@ class PegawaiController extends Controller
 
 
     public function createFormAnggaran(Request $request) {
-      $file= $request->file;
-                // nama file
-          echo 'File Name: '.$file->getClientOriginalName();
-          echo '<br>';
-
-                // ekstensi file
-          echo 'File Extension: '.$file->getClientOriginalExtension();
-          echo '<br>';
-
-                // real path
-          echo 'File Real Path: '.$file->getRealPath();
-          echo '<br>';
-
-                // ukuran file
-          echo 'File Size: '.$file->getSize();
-          echo '<br>';
-
-                // tipe mime
-          echo 'File Mime Type: '.$file->getMimeType();
-
-                // isi dengan nama folder tempat kemana file diupload
-          $tujuan_upload = 'data_file';
-
-                // upload file
-          $file->move($tujuan_upload,$file->getClientOriginalName());
-          $alamatfile = $file->getClientOriginalName();
-
-      Anggaran::create([
+          Anggaran::create([
         'id_user' => Auth::user()->id,
         'perihal' => $request->perihal,
-        'memo' => $request->memo,
+        'dokumen' => $request->dokumen,
+        'invoice' => $request->invoice,
         'tanggal_anggaran' => $request->tanggal,
         'jumlah' => $request->jumlah,
         'coa' => $request->coa,
-        'status' => $request->status,
-        'dokumen' => $alamatfile
+        'status' => $request->status
       ]);
 
 

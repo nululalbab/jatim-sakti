@@ -27,12 +27,26 @@
 
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nomor Memo') }}</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nomor Dokumen') }}</label>
 
                             <div class="col-md-6">
-                                <input id="memo" type="text" class="form-control @error('Nomor Memo') is-invalid @enderror" name="memo" value="{{ old('memo') }}" required autocomplete="memo" autofocus>
+                                <input id="dokumen" type="text" class="form-control @error('Nomor dokumen') is-invalid @enderror" name="dokumen" value="{{ old('dokumen') }}" required autocomplete="dokumen" autofocus>
 
-                                @error('memo')
+                                @error('dokumen')
+                                    <span class="invalid-feedback" role="alert">
+                                        <strong>{{ $message }}</strong>
+                                    </span>
+                                @enderror
+                            </div>
+                        </div>
+
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Nomor invoice') }}</label>
+
+                            <div class="col-md-6">
+                                <input id="invoice" type="text" class="form-control @error('Nomor invoice') is-invalid @enderror" name="invoice" value="{{ old('invoice') }}" required autocomplete="invoice" autofocus>
+
+                                @error('invoice')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -89,30 +103,12 @@
 
                           <input id="status" type="hidden" class="form-control @error('status') is-invalid @enderror" name="status" value="0" required autocomplete="status" autofocus>
 
-                        <div class="form-group row">
-                            <label for="file" class="col-md-4 col-form-label text-md-right">{{ __('File') }}</label>
 
-                            <div class="col-md-6">
-                            <div class="custom-file">
-                              <div class="form-group">
-                                <input type="file" name="file" class="custom-file-input" id="inputGroupFile01" aria-describedby="inputGroupFileAddon01">
-                                <label class="custom-file-label" for="inputGroupFile01">Choose file</label>
-                            </div>
-                            
-
-                                @error('file')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
-                            </div>
-                        </div>
-                      </div>
 
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-4">
                                 <button type="submit" class="btn btn-primary">
-                                    {{ __('Register') }}
+                                    {{ __('Kirim Anggaran') }}
                                 </button>
                             </div>
                         </div>

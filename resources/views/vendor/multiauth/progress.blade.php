@@ -8,7 +8,7 @@
         <p class="card-description">
           Data tabel progress validasi anggaran yang diajukan ke departemen SLA
         </p>
-              <table id="tabeldaftar" class="table display nowrap" style="width:100%">
+        <table id="tabeldaftar" class="table display nowrap" style="width:100%">
           <thead>
             <tr>
               <th>
@@ -18,10 +18,13 @@
                 User
               </th>
               <th>
-                Unit Kerja - Status
+                Unit Kerja
               </th>
               <th>
-                No Memo
+                No Dokumen
+              </th>
+              <th>
+                No Invoice
               </th>
               <th>
                 Perihal
@@ -30,13 +33,19 @@
                 Progress
               </th>
               <th>
+                Tanggal Progress
+              </th>
+              <th>
                 Amount
               </th>
               <th>
                 COA
               </th>
               <th>
-                Dokumen
+                Penanggung Jawab
+              </th>
+              <th>
+                Keterangan
               </th>
               <th>
                 Edit
@@ -54,19 +63,24 @@
                 </td>
                 <td>
                   {{$anggaran->user->unit->nama_unit}}
-                  @if ($anggaran->status=="1")
-                      <button class="btn btn-block btn-sm btn-gradient-primary">Cair</button>
-                    @else <button class="btn btn-block btn-sm btn-gradient-primary"> Belum Cair</button>
-                  @endif
                 </td>
                 <td>
-                  {{$anggaran->memo}}
+                  {{$anggaran->dokumen}}
+                </td>
+                <td>
+                  {{$anggaran->invoice}}
                 </td>
                 <td>
                   {{$anggaran->perihal}}
                 </td>
                 <td>
-                  {{$anggaran->progress}} / {{$anggaran->tanggal_progress}}
+                  @if ($anggaran->progress==null)
+                      <button class="btn btn-block btn-sm btn-gradient-primary">Belum Diproses</button>
+                    @else <button class="btn btn-block btn-sm btn-gradient-primary">{{$anggaran->progress}}</button>
+                  @endif
+                </td>
+                <td>
+                  {{$anggaran->tanggal_progress}}
                 </td>
                 <td>
                   {{$anggaran->jumlah}}
@@ -75,7 +89,13 @@
                   {{$anggaran->coa}}
                 </td>
                 <td>
-                  <button class="btn btn-block btn-sm btn-gradient-primary">Dokumen</button>
+                  @if (!empty($anggaran->admin))
+                  {{$anggaran->admin->name}} {{$anggaran->admin->id_role}}
+                  @endif
+
+                </td>
+                <td>
+                {{$anggaran->keterangan}}
                 </td>
                 <input type="hidden" name="id_anggaran" value="{{$anggaran->id_anggaran}}">
                 <td>

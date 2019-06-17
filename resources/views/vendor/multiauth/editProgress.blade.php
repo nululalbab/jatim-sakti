@@ -8,21 +8,23 @@
             <div class="card">
                 <div class="card-header">{{ __('Form Edit Progress Anggaran') }}</div>
                 <div class="card-body">
-                    <form method="POST" action="{{ route('admin.edit.anggaran') }}" enctype="multipart/form-data">
+                    <form method="POST" action="{{ route('admin.edit.anggaran') }}" enctype="multipart/form-data" id="editProgress">
                         @csrf
 
 
                         <div class="form-group row">
-                            <label for="name" class="col-md-4 col-form-label text-md-right">Memo</label>
+                            <label for="name" class="col-md-4 col-form-label text-md-right">No Dokumen</label>
 
                             <div class="col-md-6">
-                                <input id="memo" type="text" class="form-control @error('Nomor Memo') is-invalid @enderror" name="memo" value="{{$anggaran[0]->memo}}" required autocomplete="memo" autofocus>
+                                <h4 for="name" class="col-md-8 text-md-right">{{$anggaran[0]->dokumen}}</h4>
+                            </div>
+                        </div>
 
-                                @error('memo')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                        <div class="form-group row">
+                            <label for="name" class="col-md-4 col-form-label text-md-right">No Invoice</label>
+
+                            <div class="col-md-6">
+                                <h4 for="name" class="col-md-8  text-md-right">{{$anggaran[0]->invoice}}</h4>
                             </div>
                         </div>
 
@@ -30,9 +32,22 @@
                             <label for="perihal" class="col-md-4 col-form-label text-md-right">{{ __('Perihal') }}</label>
 
                             <div class="col-md-6">
-                                <input id="perihal" type="text" class="form-control @error('Perihal') is-invalid @enderror" name="perihal" value="{{$anggaran[0]->perihal}}" required autocomplete="perihal" autofocus>
+                              <h4 for="name" class="col-md-8  text-md-right">{{$anggaran[0]->perihal}}</h4>
+                            </div>
+                        </div>
 
-                                @error('perihal')
+                        <div class="form-group row">
+                            <label for="progress" class="col-md-4 col-form-label text-md-right">{{ __('Progress') }}</label>
+
+                            <div class="col-md-6 ">
+                                <select class="form-control form-control-sm" name="progress" form="editProgress">
+                                  <option value="Approval">Approval</option>
+                                  <option value="Validasi">Validasi</option>
+                                  <option value="Settlement">Settlement</option>
+                                  <option value="Cancel">Cancel</option>
+                                  <option value="Reject">Reject</option>
+                                </select>
+                                @error('progress')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -41,12 +56,12 @@
                         </div>
 
                         <div class="form-group row">
-                            <label for="progress" class="col-md-4 col-form-label text-md-right">{{ __('Progress') }}</label>
+                            <label for="Keterangan" class="col-md-4 col-form-label text-md-right">{{ __('Keterangan') }}</label>
 
                             <div class="col-md-6">
-                                <input id="progress" type="text" class="form-control @error('progress') is-invalid @enderror" name="progress" value="{{$anggaran[0]->progress}}" required autocomplete="progress" autofocus>
+                                <input id="keterangan" type="text" class="form-control @error('keterangan') is-invalid @enderror" name="keterangan" value="{{$anggaran[0]->keterangan}}" required autocomplete="keterangan" autofocus>
 
-                                @error('progress')
+                                @error('keterangan')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
@@ -58,13 +73,7 @@
                             <label for="jumlah" class="col-md-4 col-form-label text-md-right">{{ __('Jumlah') }}</label>
 
                             <div class="col-md-6">
-                                <input id="jumlah" type="text" class="form-control @error('jumlah') is-invalid @enderror" name="jumlah" value="{{$anggaran[0]->jumlah}}" required autocomplete="jumlah" autofocus>
-
-                                @error('jumlah')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                              <h4 for="name" class="col-md-8  text-md-right">{{$anggaran[0]->jumlah}}</h4>
                             </div>
                         </div>
 
@@ -73,13 +82,7 @@
                             <label for="coa" class="col-md-4 col-form-label text-md-right">{{ __('COA') }}</label>
 
                             <div class="col-md-6">
-                                <input id="coa" type="text" class="form-control @error('coa') is-invalid @enderror" name="coa" value="{{$anggaran[0]->coa}}" required autocomplete="coa" autofocus>
-
-                                @error('coa')
-                                    <span class="invalid-feedback" role="alert">
-                                        <strong>{{ $message }}</strong>
-                                    </span>
-                                @enderror
+                              <h4 for="name" class="col-md-8  text-md-right">{{$anggaran[0]->coa}}</h4>
                             </div>
                         </div>
 

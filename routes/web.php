@@ -28,3 +28,8 @@ Route::post('/form/upload', 'PegawaiController@proses_upload');
 
 Route::get('unit','PegawaiController@showAnggaranUnit')->name('unit.anggaran');
 Route::get('daftar/{id}', 'PegawaiController@showDaftarAnggaranUnit')->name('daftar.anggaran.unit');
+
+Route::get('coa','PegawaiController@showCoa')->name('coa.anggaran');
+Route::get('autocomplete', 'PegawaiController@search');
+Route::get('coa/{id}', 'PegawaiController@showSisaCoa')->name('coa.sisa.anggaran');
+

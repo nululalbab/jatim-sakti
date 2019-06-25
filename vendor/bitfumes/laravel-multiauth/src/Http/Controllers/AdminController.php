@@ -6,6 +6,7 @@ namespace Bitfumes\Multiauth\Http\Controllers;
 use App\Models\Anggaran;
 use App\Models\User;
 use App\Models\Unit;
+use App\Models\Coa;
 use Bitfumes\Multiauth\Model\Admin;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
@@ -126,6 +127,67 @@ class AdminController extends Controller
       return redirect()->back();
     }
 
+    public function showTambahCoa() {
+      $user = User::all();
+      $unit = Unit::all();
+      $anggaran = Anggaran::all();
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran' => $anggaran
+      );
+        return view('vendor.multiauth.tambahCoa')->with($data);
+
+    }
+
+    public function showCoa() {
+      $user = User::all();
+      $unit = Unit::all();
+      $coa = Coa::all();
+      $anggaran = Anggaran::all(); 
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran' => $anggaran,
+        'coa'=> $coa
+      );
+
+        return view('vendor.multiauth.coa')->with($data);
+    }
+
+    public function showSisaCoa($id) {
+      $user = User::all();
+      $unit = Unit::all();
+      $coa = Coa::all();
+      $anggaran = Anggaran::where('coa',$id)->where('progress',"Settlement")->get();
+      $totalCoa = Anggaran::where('coa',$id)->where('progress',"Settlement")->sum('jumlah');
+      $anggaranCoa = Coa::where('coa',$id)->sum('jumlah_coa');
+      $sisaCoa = $anggaranCoa-$totalCoa;
+
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran'=> $anggaran,
+        'sisaCoa' => $sisaCoa,
+        'coa' => $coa
+      );
+      
+        return view('vendor.multiauth.sisaCoa')->with($data);
+
+    }
+
+    public function createCoa(Request $request) {
+      Coa::create([
+    'coa' => $request->coa,
+    'jumlah_coa' => $request->jumlah_coa
+    
+      ]);
+
+
+
+    return view('vendor.multiauth.tambahCoa')->with('message', 'COA berhasil ditambahkan.');
+}
+
 
     public function changePassword(Request $request)
     {
@@ -138,3 +200,4 @@ class AdminController extends Controller
         return redirect(route('admin.home'))->with('message', 'Your password is changed successfully');
     }
 }
+

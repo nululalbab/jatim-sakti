@@ -1,11 +1,11 @@
-@extends('layouts.app')
+@extends('multiauth::layouts.app')
 @section('content')
           <!-- partial -->
 
               <div class="col-lg-12 grid-margin stretch-card">
                 <div class="card">
                   <div class="card-body">
-                    <h4 class="card-title">Daftar Pengajuan Anggaran</h4>
+                  <h4 class="card-title">Daftar Sisa COA </h4>
                     <p class="card-description">
                       Data tabel pengajuan yang diajukan ke departemen SLA
                     </p>
@@ -81,8 +81,7 @@
                               {{$anggaran->tanggal_progress}}
                             </td>
                             <td>
-                              Rp. {{number_format($anggaran->jumlah,2,',','.')}}
-                              
+                              {{$anggaran->jumlah}}
                             </td>
                             <td>
                               {{$anggaran->coa}}
@@ -102,11 +101,11 @@
 
                       </tbody>
                     </table>
-                    {{-- <h2>Total Anggaran Rp.  {{$totalAnggaran}}</h2> --}}
+                    <h2>Sisa Coa : Rp. {{$sisaCoa }}</h2>
                   </div>
                 </div>
               </div>
-
+            
 
 
               <script>

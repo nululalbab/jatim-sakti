@@ -13,9 +13,13 @@
   <link rel="stylesheet" href="{!! asset('assets/css/style.css') !!}">
   <!-- endinject -->
   <link rel="shortcut icon" href="{!! asset('assets/images/favicon.png') !!}" />
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/css/select2.min.css" rel="stylesheet" />
+  
 
-  <script src="{!! asset('assets/vendors/js/vendor.bundle.base.js') !!}"></script>
-  <script src="{!! asset('assets/vendors/js/vendor.bundle.addons.js') !!}"></script>
+
+  <script type="text/javascript" src="{!! asset('assets/vendors/js/vendor.bundle.base.js') !!}"></script>
+  <script type="text/javascript" src="{!! asset('assets/vendors/js/vendor.bundle.addons.js') !!}"></script>
     <script  type="text/javascript" src="https://code.jquery.com/jquery-3.3.1.js"></script>
     <script  type="text/javascript" src="https://cdn.datatables.net/1.10.19/js/jquery.dataTables.min.js"></script>
     <script  type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/dataTables.buttons.min.js"></script>
@@ -25,8 +29,11 @@
     <script  type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/pdfmake/0.1.53/vfs_fonts.js"></script>
     <script  type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.html5.min.js"></script>
     <script  type="text/javascript" src="https://cdn.datatables.net/buttons/1.5.6/js/buttons.print.min.js"></script>
+    <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.js"></script>
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.3/js/select2.min.js"></script>
+    <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
 
-    <script  type="text/javascript" src="https://cdn.datatables.net/1.10.19/css/jquery.dataTables.min.css"></script>
+   
 
   <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/dt/dt-1.10.18/b-1.5.6/b-html5-1.5.6/datatables.min.css"/>
 
@@ -150,6 +157,8 @@
                 <li class="nav-item"> <a class="nav-link" href="{{ route('daftar.anggaran') }}">Daftar Anggaran</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('form.anggaran') }}">Form Anggaran</a></li>
                 <li class="nav-item"> <a class="nav-link" href="{{ route('unit.anggaran') }}">Realisasi Anggaran Unit</a></li>
+                <li class="nav-item"> <a class="nav-link" href="{{ route('coa.anggaran') }}">Daftar COA</a></li>
+
               </ul>
             </div>
           </li>

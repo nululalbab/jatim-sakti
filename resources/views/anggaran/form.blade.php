@@ -15,7 +15,7 @@
                             <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Tanggal') }}</label>
 
                             <div class="col-md-6">
-                                <input id="tanggal" type="date" class="form-control @error('Tanggal') is-invalid @enderror" name="tanggal" value="{{ old('tanggal') }}" required autocomplete="tanggal" autofocus>
+                                <input id="tanggal" type="date" class="form-control @error('Tanggal') is-invalid @enderror" name="tanggal" value="{{ old('tanggal') }}" required autocomplete="tanggal" placeholder="YYYY-MM-DD" autofocus>
 
                                 @error('tanggal')
                                     <span class="invalid-feedback" role="alert">
@@ -87,7 +87,7 @@
                             <label for="coa" class="col-md-4 col-form-label text-md-right">{{ __('COA') }}</label>
 
                             <div class="col-md-6">
-                                <input id="coa" type="text" class="form-control @error('coa') is-invalid @enderror" name="coa" value="{{ old('coa') }}" required autocomplete="coa" autofocus>
+                                <input id="coa" type="text" class="coa form-control @error('coa') is-invalid @enderror" name="coa" value="{{ old('coa') }}" required autocomplete="coa" autofocus>
 
                                 @error('coa')
                                     <span class="invalid-feedback" role="alert">
@@ -102,7 +102,7 @@
 
 
                           <input id="status" type="hidden" class="form-control @error('status') is-invalid @enderror" name="status" value="0" required autocomplete="status" autofocus>
-
+                        
 
 
                         <div class="form-group row mb-0">
@@ -118,4 +118,31 @@
         </div>
     </div>
 </div>
-@endsection
+
+<script>
+    $(document).ready(function() {
+       $( "#coa" ).autocomplete({
+    
+           source: function(request, response) {
+               $.ajax({
+               url: "{{url('autocomplete')}}",
+               data: {
+                       term : request.term
+                },
+               dataType: "json",
+               success: function(data){
+                  var resp = $.map(data,function(obj){
+                       //console.log(obj.city_name);
+                       return obj.coa;
+                  }); 
+    
+                  response(resp);
+               }
+           });
+       },
+       minLength: 1
+    });
+   });
+    
+   </script>   
+   @endsection

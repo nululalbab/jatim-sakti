@@ -86,7 +86,7 @@
                   {{$anggaran->tanggal_progress}}
                 </td>
                 <td>
-                  {{$anggaran->jumlah}}
+                  Rp. {{number_format($anggaran->jumlah,2,',','.')}}
                 </td>
                 <td>
                   {{$anggaran->coa}}

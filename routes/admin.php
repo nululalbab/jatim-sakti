@@ -44,7 +44,10 @@
     Route::post('progress', 'AdminController@editAnggaran')->name('admin.edit.anggaran');
     Route::get('pencairan', 'AdminController@showPencairanAnggaran')->name('admin.pencairan.anggaran');
     Route::post('pencairan', 'AdminController@cairkanAnggaran')->name('admin.cair.anggaran');
-
+    Route::get('tambahCoa', 'AdminController@showTambahCoa')->name('admin.tambah.coa');
+    Route::post('createCoa', 'AdminController@createCoa')->name('admin.create.coa');
+    Route::get('coa','AdminController@showCoa')->name('admin.coa.anggaran');
+    Route::get('coa/{id}', 'AdminController@showSisaCoa')->name('admin.sisa.coa');
 
     Route::fallback(function () {
         return abort(404);

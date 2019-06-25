@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Models\Anggaran;
 use App\Models\User;
 use App\Models\Unit;
+use App\Models\Coa;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
@@ -57,7 +58,7 @@ class PegawaiController extends Controller
 
       $totalAnggaran = Anggaran::with('user')
       ->whereHas('user',function ($query) use ($id){
-        $query->where('id_unit',$id)->where('status',1);
+        $query->where('id_unit',$id)->where('progress',"Settlement");
       })->sum('jumlah');
 
       $data = array(
@@ -93,6 +94,53 @@ class PegawaiController extends Controller
 
         return view('anggaran.unit')->with($data);
     }
+
+    public function showCoa() {
+      $user = User::all();
+      $unit = Unit::all();
+      $coa = Coa::all();
+      $anggaran = Anggaran::all(); 
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran' => $anggaran,
+        'coa'=> $coa
+      );
+
+        return view('anggaran.coa')->with($data);
+    }
+
+    public function search(Request $request)
+    {
+          $search = $request->get('term');
+      
+          $result = Coa::where('coa', 'LIKE', '%'. $search. '%')->get();
+ 
+          return response()->json($result);
+            
+    } 
+
+    public function showSisaCoa($id) {
+      $user = User::all();
+      $unit = Unit::all();
+      $coa = Coa::all();
+      $anggaran = Anggaran::where('coa',$id)->where('progress',"Settlement")->get();
+      $totalCoa = Anggaran::where('coa',$id)->where('progress',"Settlement")->sum('jumlah');
+      $anggaranCoa = Coa::where('coa',$id)->sum('jumlah_coa');
+      $sisaCoa = $anggaranCoa-$totalCoa;
+
+      $data = array(
+        'user' => $user,
+        'unit' => $unit,
+        'anggaran'=> $anggaran,
+        'sisaCoa' => $sisaCoa,
+        'coa' => $coa
+      );
+      
+        return view('anggaran.sisaCoa')->with($data);
+
+    }
+
 
 
 

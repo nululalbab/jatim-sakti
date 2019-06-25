@@ -2,7 +2,7 @@
 
 /**
  * Created by Reliese Model.
- * Date: Mon, 17 Jun 2019 16:42:00 +0000.
+ * Date: Sat, 22 Jun 2019 07:25:32 +0000.
  */
 
 namespace App\Models;
@@ -71,5 +71,10 @@ class Anggaran extends Eloquent
 	public function user()
 	{
 		return $this->belongsTo(\App\Models\User::class, 'id_user');
+	}
+
+	public function coa()
+	{
+		return $this->belongsTo(\App\Models\Coa::class, 'coa');
 	}
 }
